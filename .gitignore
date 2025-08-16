@@ -108,5 +108,9 @@ venv.bak/
 #mkdocs build dir
 docs/site
 
+# node modules
+node_modules/
+
 # Editor files
 .vscode
+.idea
