@@ -1,0 +1,17 @@
+{
+  "name": "snakeviz",
+  "version": "1.0.0",
+  "description": "Visualize Python profiling in the browser",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/index.jsx --bundle --outfile=dist/bundle.js --format=iife --minify",
+    "watch": "esbuild src/index.jsx --bundle --outfile=dist/bundle.js --format=iife --sourcemap --watch"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.18.0"
+  }
+}
