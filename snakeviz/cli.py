@@ -4,9 +4,12 @@ This module contains the command line interface for snakeviz.
 """
 
 import argparse
+import json
 import os
+import pathlib
 import random
 import sys
+import tempfile
 import threading
 import webbrowser
 from pstats import Stats
@@ -93,6 +96,8 @@ def main(argv=None):
                          'Note that snakeviz must be run under the same '
                          'version of Python as was used to create the profile.\n')
 
+    launch_profile(filename)
+
     filename = quote(filename, safe='')
 
     hostname = args.hostname
@@ -130,6 +135,8 @@ def main(argv=None):
            (hostname, port))
     print(url)
 
+
+
     if not args.server:
         try:
             browser = webbrowser.get(args.browser)
@@ -151,6 +158,27 @@ def main(argv=None):
         print('\nBye!')
 
     return 0
+
+
+def launch_profile(profile_name):
+    from snakeviz.stats import table_rows, json_stats
+
+    try:
+        s = Stats(profile_name)
+    except:
+        raise RuntimeError('Could not read %s.' % profile_name)
+    else:
+        index_content = pathlib.Path(__file__).parent / 'templates' / 'index.html'
+        index_content = index_content.read_text().replace(
+            f'<script data-snakeviz="snakeviz"></script>',
+            f'''<script data-snakeviz="snakeviz">var snakeviz = {{
+                table_rows: {json.dumps(table_rows(s))},
+                callees: {json.dumps(json_stats(s))}
+            }}</script>'''
+        )
+        with tempfile.NamedTemporaryFile("w+", suffix=".html", prefix="snakeviz_", delete=False) as f:
+            f.write(index_content)
+        webbrowser.open(f.name)
 
 
 if __name__ == '__main__':
