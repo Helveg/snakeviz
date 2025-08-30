@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling", "hatch-node-build>=1.1.0"]
+requires = ["hatchling", "hatch-nodejs-build>=1.1.1"]
 build-backend = "hatchling.build"
 
 [project]
@@ -38,6 +38,6 @@ changelog = "https://github.com/jiffyclub/snakeviz/blob/master/CHANGES.rst"
 source = "code"
 path = "snakeviz/__about__.py"
 
-[tool.hatch.build.hooks.node-build]
+[tool.hatch.build.hooks.nodejs-build]
 bundle-dir = "templates"
 inline-bundle = true
