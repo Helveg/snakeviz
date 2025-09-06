@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Snakeviz</title>
+    <link href="dist/bundle.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script data-testid="test-profile">
+        var snakeviz = {
+                table_rows: [[["1", 1], "0.00157", "0.00157", "1.001", "1.001", "make_profile.py:4(cpu_intensive_task)", "C:\\Users\\Skillz\\git\\snakeviz\\make_profile.py:4(cpu_intensive_task)"], [["1870187", 1870187], "0.4478", "2.394e-07", "0.4478", "2.394e-07", "make_profile.py:8(&lt;genexpr&gt;)", "C:\\Users\\Skillz\\git\\snakeviz\\make_profile.py:8(<genexpr>)"], [["189", 189], "0.0003078", "1.629e-06", "0.0003078", "1.629e-06", "~:0(&lt;built-in method time.time&gt;)", "~:0(<built-in method time.time>)"], [["187", 187], "0.551", "0.002946", "0.9988", "0.005341", "~:0(&lt;built-in method builtins.sum&gt;)", "~:0(<built-in method builtins.sum>)"], [["1", 1], "3.44e-05", "3.44e-05", "3.44e-05", "3.44e-05", "~:0(&lt;method &#x27;disable&#x27; of &#x27;_lsprof.Profiler&#x27; objects&gt;)", "~:0(<method 'disable' of '_lsprof.Profiler' objects>)"]],
+                callees: {"C:\\Users\\Skillz\\git\\snakeviz\\make_profile.py:4(cpu_intensive_task)": {"children": {"~:0(<built-in method time.time>)": [189, 189, 0.0003078, 0.0003078], "~:0(<built-in method builtins.sum>)": [187, 187, 0.5509773, 0.9987757]}, "stats": [1, 1, 0.0015698, 1.0006533], "callers": {}, "display_name": "make_profile.py:4(cpu_intensive_task)"}, "C:\\Users\\Skillz\\git\\snakeviz\\make_profile.py:8(<genexpr>)": {"children": {}, "stats": [1870187, 1870187, 0.44779840000000004, 0.44779840000000004], "callers": {"~:0(<built-in method builtins.sum>)": [1870187, 1870187, 0.44779840000000004, 0.44779840000000004]}, "display_name": "make_profile.py:8(<genexpr>)"}, "~:0(<built-in method builtins.sum>)": {"children": {"C:\\Users\\Skillz\\git\\snakeviz\\make_profile.py:8(<genexpr>)": [1870187, 1870187, 0.44779840000000004, 0.44779840000000004]}, "stats": [187, 187, 0.5509773, 0.9987757], "callers": {"C:\\Users\\Skillz\\git\\snakeviz\\make_profile.py:4(cpu_intensive_task)": [187, 187, 0.5509773, 0.9987757]}, "display_name": "~:0(<built-in method builtins.sum>)"}, "~:0(<built-in method time.time>)": {"children": {}, "stats": [189, 189, 0.0003078, 0.0003078], "callers": {"C:\\Users\\Skillz\\git\\snakeviz\\make_profile.py:4(cpu_intensive_task)": [189, 189, 0.0003078, 0.0003078]}, "display_name": "~:0(<built-in method time.time>)"}}
+            }
+    </script>
+    <script src="dist/bundle.js"></script>
+    <script data-snakeviz="plugins"></script>
+    <script>
+        new EventSource('/esbuild').addEventListener('change', () => location.reload())
+    </script>
+  </body>
+</html>

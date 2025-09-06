@@ -269,6 +269,7 @@
         var node_name = event.data['name'];
         var parent_name = event.data['parent_name'];
         var node_time = stats[node_name]['stats'][3];
+        console.log("ROOT", node_name, depth, max_depth, cutoff, node_time, parent_name);
         self.postMessage(JSON.stringify(
           sv_build_hierarchy(
             node_name, depth, max_depth, cutoff, node_time, parent_name

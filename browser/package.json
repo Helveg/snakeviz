@@ -4,14 +4,15 @@
   "description": "Visualize Python profiling in the browser",
   "type": "module",
   "scripts": {
-    "build": "esbuild src/index.jsx --bundle --outfile=dist/bundle.js --format=iife --minify",
-    "watch": "esbuild src/index.jsx --bundle --outfile=dist/bundle.js --format=iife --sourcemap --watch"
+    "build": "esbuild src/index.tsx --bundle --outfile=dist/bundle.js --format=iife --minify",
+    "watch": "esbuild src/index.tsx --bundle --outfile=dist/bundle.js --format=iife --sourcemap --watch",
+    "serve": "esbuild src/index.tsx --bundle --outfile=dist/bundle.js --format=iife --sourcemap --servedir=. --watch"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "esbuild": "^0.18.0"
+    "esbuild": "^0.18.20"
   }
 }

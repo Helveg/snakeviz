@@ -164,6 +164,7 @@ var sv_make_worker = function sv_make_worker() {
         if (cache_key != null) {
             sv_json_cache[cache_key] = json;
         }
+        console.log("sv_make_worker", json)
         redraw_vis(json);
         _.defer(sv_hide_working);
     };
@@ -203,6 +204,7 @@ var sv_draw_vis = function sv_draw_vis(root_name, parent_name) {
 
     cache_key = JSON.stringify(message);
     if (_.has(sv_json_cache, cache_key)) {
+        console.log("sv_draw_vis", sv_json_cache[cache_key])
         redraw_vis(sv_json_cache[cache_key]);
         sv_hide_working();
     } else {

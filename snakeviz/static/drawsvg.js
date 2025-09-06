@@ -310,6 +310,7 @@ var redraw_vis = function redraw_vis(json) {
   if (style === "sunburst") {
     drawSunburst(json);
   } else if (style === "icicle") {
+      console.log("DRAWING ICICLE", json)
     drawIcicle(json);
   }
   d3.select('#container')
